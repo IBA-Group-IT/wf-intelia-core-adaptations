@@ -1,9 +1,10 @@
 package com.ibagroup.wf.intelia.core.adaptations;
 
 import com.amazonaws.services.s3.AmazonS3;
-import com.freedomoss.crowdcontrol.webharvest.plugin.security.service.ISecureStoreService;
-import com.freedomoss.crowdcontrol.webharvest.web.dto.SecureEntryDTO;
+import com.workfusion.bot.service.ISecureStoreService;
+import com.workfusion.bot.service.SecureEntryDTO;
 import com.workfusion.utils.client.AmazonUtils;
+import com.workfusion.utils.client.S3ContextKeyDTO;
 
 public interface MachineVersionAdaptations {
 
@@ -19,7 +20,11 @@ public interface MachineVersionAdaptations {
     }
 
     public static AmazonS3 getS3ClientConnection(String s3AccessKey, String s3SecretKey, String s3EndpointUrl) {
-        return AmazonUtils.createS3Client(s3AccessKey, s3SecretKey, s3EndpointUrl, null);
+        S3ContextKeyDTO contextKeyDTO = new S3ContextKeyDTO();
+        contextKeyDTO.setEndpointURL(s3EndpointUrl);
+        contextKeyDTO.setPrivateKey(s3SecretKey);
+        contextKeyDTO.setPublicKey(s3AccessKey);
+        return AmazonUtils.createS3Client(contextKeyDTO, null);
     }
 
 }
