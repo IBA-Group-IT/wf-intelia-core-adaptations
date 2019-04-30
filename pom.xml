@@ -235,4 +235,18 @@
 		<tag>HEAD</tag>
 	</scm>
 
+	<distributionManagement>
+		<repository>
+			<id>central</id>
+			<url>${env.MAVEN_REPO_URL}/maven-releases</url>
+		</repository>
+	</distributionManagement>
+
+	<repositories>
+		<repository>
+			<id>central</id>
+			<url>${env.MAVEN_REPO_URL}/maven-public</url>
+		</repository>
+	</repositories>
+
 </project>
