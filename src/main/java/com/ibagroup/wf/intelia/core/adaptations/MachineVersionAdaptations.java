@@ -5,6 +5,15 @@ import com.freedomoss.crowdcontrol.webharvest.plugin.security.service.ISecureSto
 import com.freedomoss.crowdcontrol.webharvest.web.dto.SecureEntryDTO;
 import com.workfusion.utils.client.AmazonUtils;
 
+/**
+ * WF specific machine adaptations.
+ * <p><em>
+ * Ideally all adaptations should be in this single place.
+ * </em></p>
+ * 
+ * @author dmitriev
+ *
+ */
 public interface MachineVersionAdaptations {
 
     public static <T> T wrap(SecureEntryDTO dto, ISecureEntryDtoWrapper<T> wrapper) {

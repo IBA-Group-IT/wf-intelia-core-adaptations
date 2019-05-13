@@ -14,7 +14,16 @@ build:
   tags: 
     - DOCKER
   script:
-    - 'mvn $MAVEN_CLI_OPTS clean install'
+    - 'mvn $MAVEN_CLI_OPTS install'
+    
+deploy:
+  stage: deploy
+  tags: 
+    - DOCKER
+  script:
+    - 'mvn $MAVEN_CLI_OPTS deploy'
+  only:
+    - wf90adaptations  
 
   
 

@@ -5,7 +5,7 @@
 	<groupId>com.ibagroup.wf</groupId>
 	<artifactId>intelia-core-adaptations</artifactId>
 	<packaging>jar</packaging>
-	<version>90.0.0</version>
+	<version>90.0.1</version>
 
 	<name>Intelia Core Adaptations Project</name>
 
@@ -248,10 +248,12 @@
 			<url>${env.MAVEN_REPO_URL}/maven-public</url>
 		</repository>
 		<repository>
+			<!-- WF 9007 build dependencies fix -->
 			<id>local-nexus</id>
 			<url>${env.MAVEN_REPO_URL}/maven-public</url>
 		</repository>
 		<repository>
+			<!-- WF 9007 build dependencies fix -->
 			<id>jboss-snapshot</id>
 			<url>${env.MAVEN_REPO_URL}/maven-public</url>
 		</repository>
