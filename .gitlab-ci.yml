@@ -23,7 +23,7 @@ deploy:
   script:
     - 'mvn $MAVEN_CLI_OPTS deploy'
   only:
-    - wf92adaptations  
+    - wf92adaptations
 
   
 
