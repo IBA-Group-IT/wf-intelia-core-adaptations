@@ -5,7 +5,7 @@
 	<groupId>com.ibagroup.wf</groupId>
 	<artifactId>intelia-core-adaptations</artifactId>
 	<packaging>jar</packaging>
-	<version>92.0.0</version>
+	<version>92.0.1</version>
 
 	<name>Intelia Core Adaptations Project</name>
 
@@ -234,5 +234,29 @@
 		<developerConnection>scm:git:https://github.com/IBA-Group-IT/wf-intelia-core-adaptations.git</developerConnection>
 		<tag>HEAD</tag>
 	</scm>
+
+	<distributionManagement>
+		<repository>
+			<id>central</id>
+			<url>${env.MAVEN_REPO_URL}/maven-releases</url>
+		</repository>
+	</distributionManagement>
+
+	<repositories>
+		<repository>
+			<id>central</id>
+			<url>${env.MAVEN_REPO_URL}/maven-public</url>
+		</repository>
+		<repository>
+			<!-- WF 9203 build dependencies fix -->
+			<id>local-nexus</id>
+			<url>${env.MAVEN_REPO_URL}/maven-public</url>
+		</repository>
+		<repository>
+			<!-- WF 9203 build dependencies fix -->
+			<id>jboss-snapshot</id>
+			<url>${env.MAVEN_REPO_URL}/maven-public</url>
+		</repository>
+	</repositories>
 
 </project>

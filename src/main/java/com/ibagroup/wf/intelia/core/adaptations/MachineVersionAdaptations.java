@@ -6,6 +6,15 @@ import com.workfusion.bot.service.SecureEntryDTO;
 import com.workfusion.utils.client.AmazonUtils;
 import com.workfusion.utils.client.S3ContextKeyDTO;
 
+/**
+ * WF specific machine adaptations.
+ * <p><em>
+ * Ideally all adaptations should be in this single place.
+ * </em></p>
+ * 
+ * @author dmitriev
+ *
+ */
 public interface MachineVersionAdaptations {
 
     public static <T> T wrap(SecureEntryDTO dto, ISecureEntryDtoWrapper<T> wrapper) {
