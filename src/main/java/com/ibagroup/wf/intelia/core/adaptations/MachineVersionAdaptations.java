@@ -1,5 +1,8 @@
 package com.ibagroup.wf.intelia.core.adaptations;
 
+import java.lang.reflect.Method;
+import java.util.Optional;
+import org.apache.commons.lang3.reflect.MethodUtils;
 import com.amazonaws.services.s3.AmazonS3;
 import com.freedomoss.crowdcontrol.webharvest.plugin.security.service.ISecureStoreService;
 import com.freedomoss.crowdcontrol.webharvest.web.dto.SecureEntryDTO;
@@ -31,4 +34,7 @@ public interface MachineVersionAdaptations {
         return AmazonUtils.createS3Client(s3AccessKey, s3SecretKey, s3EndpointUrl, null);
     }
 
+    public static Optional<Method> findAllMehodsHavingAnnotation(Class examineClass, Class annotationClass){
+        return MethodUtils.getMethodsListWithAnnotation(examineClass, annotationClass).stream().findAny();
+    }
 }
