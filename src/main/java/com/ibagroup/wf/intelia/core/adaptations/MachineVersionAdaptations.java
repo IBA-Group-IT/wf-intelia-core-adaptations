@@ -20,9 +20,13 @@ import com.workfusion.utils.client.S3ContextKeyDTO;
  */
 public interface MachineVersionAdaptations {
 
-    public static <T> T wrap(SecureEntryDTO dto, ISecureEntryDtoWrapper<T> wrapper) {
-        if (dto != null) {
-            return wrapper.wrap(dto.getAlias(), dto.getKey(), dto.getValue(), dto.getLastUpdateDate());
+    public static <T> T wrap(Object dto, ISecureEntryDtoWrapper<T> wrapper) {
+        if (dto instanceof SecureEntryDTO) {
+            SecureEntryDTO secureEntryDto = (SecureEntryDTO) dto;
+            return wrapper.wrap(secureEntryDto.getAlias(), secureEntryDto.getKey(), secureEntryDto.getValue(), secureEntryDto.getLastUpdateDate());
+        } else if (dto instanceof com.freedomoss.crowdcontrol.webharvest.web.dto.SecureEntryDTO) {
+            com.freedomoss.crowdcontrol.webharvest.web.dto.SecureEntryDTO secureEntryDto = (com.freedomoss.crowdcontrol.webharvest.web.dto.SecureEntryDTO) dto;
+            return wrapper.wrap(secureEntryDto.getAlias(), secureEntryDto.getKey(), secureEntryDto.getValue(), secureEntryDto.getLastUpdateDate());
         }
         return null;
     }
