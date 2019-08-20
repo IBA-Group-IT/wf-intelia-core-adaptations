@@ -19,9 +19,10 @@ import com.workfusion.utils.client.AmazonUtils;
  */
 public interface MachineVersionAdaptations {
 
-    public static <T> T wrap(SecureEntryDTO dto, ISecureEntryDtoWrapper<T> wrapper) {
-        if (dto != null) {
-            return wrapper.wrap(dto.getAlias(), dto.getKey(), dto.getValue(), dto.getLastUpdateDate());
+    public static <T> T wrap(Object dto, ISecureEntryDtoWrapper<T> wrapper) {
+        if (dto instanceof SecureEntryDTO) {
+            SecureEntryDTO secureEntryDto = (SecureEntryDTO) dto;
+            return wrapper.wrap(secureEntryDto.getAlias(), secureEntryDto.getKey(), secureEntryDto.getValue(), secureEntryDto.getLastUpdateDate());
         }
         return null;
     }
