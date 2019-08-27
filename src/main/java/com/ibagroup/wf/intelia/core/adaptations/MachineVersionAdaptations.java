@@ -6,6 +6,7 @@ import org.apache.commons.lang3.reflect.MethodUtils;
 import com.amazonaws.services.s3.AmazonS3;
 import com.freedomoss.crowdcontrol.webharvest.plugin.security.service.ISecureStoreService;
 import com.freedomoss.crowdcontrol.webharvest.web.dto.SecureEntryDTO;
+import com.workfusion.rpa.helpers.RPA;
 import com.workfusion.utils.client.AmazonUtils;
 
 /**
@@ -37,5 +38,9 @@ public interface MachineVersionAdaptations {
 
     public static List<Method> getMethodsListWithAnnotation(Class examineClass, Class annotationClass) {
         return MethodUtils.getMethodsListWithAnnotation(examineClass, annotationClass);
+    }
+
+    public static String executeGroovyScript(String script) {
+        return (String) RPA.executeGroovyScript(script.toString());
     }
 }
