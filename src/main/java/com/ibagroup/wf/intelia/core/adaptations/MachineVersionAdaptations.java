@@ -6,6 +6,7 @@ import org.apache.commons.lang3.reflect.MethodUtils;
 import com.amazonaws.services.s3.AmazonS3;
 import com.workfusion.bot.service.ISecureStoreService;
 import com.workfusion.bot.service.SecureEntryDTO;
+import com.workfusion.rpa.helpers.Script;
 import com.workfusion.utils.client.AmazonUtils;
 import com.workfusion.utils.client.S3ContextKeyDTO;
 
@@ -45,5 +46,9 @@ public interface MachineVersionAdaptations {
 
     public static List<Method> getMethodsListWithAnnotation(Class examineClass, Class annotationClass) {
         return MethodUtils.getMethodsListWithAnnotation(examineClass, annotationClass, true, true);
+    }
+
+    public static String executeGroovyScript(String script) {
+        return (String) Script.executeGroovyScript(script.toString());
     }
 }
