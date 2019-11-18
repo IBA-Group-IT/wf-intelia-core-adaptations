@@ -15,6 +15,8 @@
 		<powermock.version>1.7.0</powermock.version>
 		<log4j.version>1.2.17</log4j.version>
 		<workfusion.version>9.2.0.3</workfusion.version>
+		<com.workfusion.studio.wf.mediator-version>1.0.1-SNAPSHOT</com.workfusion.studio.wf.mediator-version>
+		<control-tower-task-executor.wf-machine.version>9.2.0.b-2</control-tower-task-executor.wf-machine.version>
 	</properties>
 
 	<dependencies>
@@ -47,6 +49,31 @@
 			<artifactId>javassist</artifactId>
 			<version>3.23.1-GA</version>
 		</dependency>
+		<dependency>
+			<groupId>com.workfusion.studio</groupId>
+			<artifactId>com.workfusion.studio.wf.mediator</artifactId>
+			<version>${com.workfusion.studio.wf.mediator-version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.workfusion.studio</groupId>
+			<artifactId>control-tower-task-executor.wf-machine</artifactId>
+			<version>${control-tower-task-executor.wf-machine.version}</version>
+			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>log4j-over-slf4j</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>com.opencsv</groupId>
+			<artifactId>opencsv</artifactId>
+			<version>3.8</version>
+			<scope>test</scope>
+		</dependency>
+
 	</dependencies>
 
 	<build>
