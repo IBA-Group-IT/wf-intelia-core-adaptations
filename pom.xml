@@ -5,7 +5,7 @@
 	<groupId>com.ibagroup.wf</groupId>
 	<artifactId>intelia-core-adaptations</artifactId>
 	<packaging>jar</packaging>
-	<version>92.0.5</version>
+	<version>92.0.6</version>
 
 	<name>Intelia Core Adaptations Project</name>
 
@@ -276,14 +276,29 @@
 			<url>${env.MAVEN_REPO_URL}/maven-public</url>
 		</repository>
 		<repository>
-			<!-- WF 9203 build dependencies fix -->
-			<id>local-nexus</id>
-			<url>${env.MAVEN_REPO_URL}/maven-public</url>
+			<!-- WF machine build's dependencies fix -->
+			<id>local-repo</id>
+			<url>${env.MAVEN_REPO_URL}/local-mcb-repo</url>
 		</repository>
 		<repository>
-			<!-- WF 9203 build dependencies fix -->
+			<!-- WF machine build's dependencies fix -->
+			<id>local-nexus</id>
+			<url>${env.MAVEN_REPO_URL}/local-mcb-repo</url>
+		</repository>
+		<repository>
+			<!-- WF machine build's dependencies fix -->
 			<id>jboss-snapshot</id>
-			<url>${env.MAVEN_REPO_URL}/maven-public</url>
+			<url>${env.MAVEN_REPO_URL}/local-mcb-repo-snapshots</url>
+		</repository>
+		<repository>
+			<!-- WF machine build's dependencies fix -->
+			<id>neon</id>
+			<url>${env.MAVEN_REPO_URL}/local-mcb-repo</url>
+		</repository>
+		<repository>
+			<!-- WF machine build's dependencies fix -->
+			<id>photon</id>
+			<url>${env.MAVEN_REPO_URL}/local-mcb-repo</url>
 		</repository>
 	</repositories>
 
